@@ -2,11 +2,6 @@ import sqlite3
 from typing import Protocol
 from pathlib import Path
 
-INSERT_PERSON_QUERY = \
-"""
-INSERT INTO person (name)
-"""
-
 
 class InsertableObject(Protocol):
     def _database_insert(self, cursor: sqlite3.Cursor):
@@ -19,7 +14,6 @@ class InsertableObject(Protocol):
 
     def _database_delete(self, cursor: sqlite3.Cursor):
         ...
-
 
 
 class Database():
